@@ -3,15 +3,17 @@
 #include "eventbus/EventBus.h"
 #include "events.h"
 
-class Player {
-  public:
-    Player() = delete;
-    Player(EventBus& eb);
-    ~Player() = default;
+namespace eventbus::test {
+  class Player {
+    public:
+      Player() = delete;
+      Player(eventbus::EventBus& eb);
+      ~Player() = default;
 
-  private:
-    void onCreateEvent(CreateEvent& e);
-    void onCreateEvent2(CreateEvent& e);
+    private:
+      void onCreateEvent(eventbus::test::CreateEvent& e);
+      void onCreateEvent2(eventbus::test::CreateEvent& e);
 
-    void onPauseEvent(PauseEvent& e);
-};
+      void onPauseEvent(eventbus::test::PauseEvent& e);
+  };
+}

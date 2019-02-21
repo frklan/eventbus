@@ -1,7 +1,8 @@
 #pragma once
 
-struct Event {
-  public:
-    Event() {};
-};
-
+namespace eventbus {
+  struct Event {
+    public:
+      Event() {};
+  };
+}

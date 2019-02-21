@@ -2,16 +2,17 @@
 
 #include "eventbus/Event.h"
 
-struct CreateEvent : public Event {
+namespace eventbus::test {
+  struct CreateEvent : public eventbus::Event {
 
-};
+  };
 
-struct QuitEvent : public Event {
+  struct QuitEvent : public eventbus::Event {
 
-};
+  };
 
-struct PauseEvent : public Event {
-    PauseEvent(bool isPaused) : isPaused(isPaused) {};
-    bool isPaused;
-};
-
+  struct PauseEvent : public eventbus::Event {
+      PauseEvent(bool isPaused) : isPaused(isPaused) {};
+      bool isPaused;
+  };
+}

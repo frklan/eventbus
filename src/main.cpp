@@ -6,6 +6,10 @@
 #include "player.h"
 #include "mob.h"
 
+
+using namespace eventbus;
+using namespace eventbus::test;
+
 int main() {
   std::clog << "--- EventBus ---\n";
   
@@ -26,4 +30,3 @@ int main() {
   
   return 0;
 }
-

@@ -7,13 +7,13 @@ A simple event system made in C++, inspired by [Niko Savas](https://medium.com/@
 Events are defined as subclasses to Events, like so
 
 ````c++
-struct CreateEvent : public Event {
+struct CreateEvent : public eventbus::Event {
 };
 
-struct QuitEvent : public Event {
+struct QuitEvent : public eventbus::Event {
 };
 
-struct PauseEvent : public Event {
+struct PauseEvent : public eventbus::Event {
     PauseEvent(bool isPaused) : isPaused(isPaused) {};
     bool isPaused;
 };
@@ -22,13 +22,13 @@ struct PauseEvent : public Event {
 The shared EventBus object is created, like so
 
 ````c++
-EventBus eventbus;
+eventbus::EventBus eventbus;
 ````
 
 An object can now register itself as a subscriber by calling ````EventBus.subscribe()```` passing in a pointer to the object and the callback method
 
 ````c++
-Mob::RegisterEvents(EventBus& bus) {
+Mob::RegisterEvents(eventbus::EventBus& bus) {
   bus.subscribe(this, &Mob::onCreateEvent);  
 }
 
