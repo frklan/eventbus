@@ -10,7 +10,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
 file(GLOB_RECURSE SOURCES src/*.cpp)
 
 # set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -pedantic")
-set(CMAKE_CXX_FLAGS "-Weverything")
+set(CMAKE_CXX_FLAGS "-Weverything -Wno-weak-vtables -Wno-c++98-compat -Wno-c++98-compat-pedantic")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 

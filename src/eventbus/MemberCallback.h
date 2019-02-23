@@ -10,18 +10,20 @@ namespace eventbus {
       typedef void (T::*Callback)(EventType&);
       
       MemberCallback(T* instance, Callback callback) :
-      instance(instance),
-      callback(callback)
+      handlerInstance(instance),
+      eventCallback(callback)
       {
       }
 
+      virtual ~MemberCallback() override = default;
+
     private:
       virtual void call(eventbus::Event& e) override {
-        std::invoke(callback, instance, static_cast<EventType&>(e));
+        std::invoke(eventCallback, handlerInstance, static_cast<EventType&>(e));
       }
 
     private:
-      T* instance;
-      Callback callback;
+      T* handlerInstance;
+      Callback eventCallback;
   };
 }

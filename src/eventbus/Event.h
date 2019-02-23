@@ -3,6 +3,6 @@
 namespace eventbus {
   struct Event {
     public:
-      Event() {};
+      Event() {}
   };
 }

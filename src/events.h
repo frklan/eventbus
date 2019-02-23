@@ -12,7 +12,7 @@ namespace eventbus::test {
   };
 
   struct PauseEvent : public eventbus::Event {
-      PauseEvent(bool isPaused) : isPaused(isPaused) {};
+      PauseEvent(bool paused) : isPaused(paused) {}
       bool isPaused;
   };
 }
