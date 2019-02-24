@@ -21,6 +21,8 @@ namespace eventbus {
       template<typename Event>
       void publish(Event&& event);
 
+      void reset() { subscribers.clear(); }
+
     private:
       std::map<std::type_index, std::unique_ptr<HandlerList>> subscribers;
   };
