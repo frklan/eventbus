@@ -1,22 +1,21 @@
 cmake_minimum_required(VERSION 3.1)
 
 project(ebus)
+
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
 
-#Add files
-file(GLOB_RECURSE SOURCES src/*.cpp)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -pedantic")
-set(CMAKE_CXX_FLAGS "-Weverything -Wno-weak-vtables -Wno-c++98-compat -Wno-c++98-compat-pedantic")
-set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
-
-#Define the executable
-add_executable(
-    ${PROJECT_NAME} 
-    ${SOURCES} 
+add_compile_options(
+  -Weverything 
+  -Wno-c++98-compat 
+  -Wno-c++98-compat-pedantic
+  -g
 )
-target_link_libraries(${PROJECT_NAME} )
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+add_subdirectory(src)
